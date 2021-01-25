@@ -1,7 +1,7 @@
 import { Icon } from "leaflet";
 
 const marketMarker = new Icon({
-  iconUrl: "src/assets/shared/marker.png",
+  iconUrl: "src/assets/images/marker.png",
   iconSize: [25, 25]
 })
 

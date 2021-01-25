@@ -1,11 +1,15 @@
+import { ChakraProvider } from "@chakra-ui/react";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import './assets/styles/index.scss';
 
-const title = 'here';
+const title = "Philly Farmer's Markets";
 
 ReactDOM.render(
-  <App title={title}/>,
+  <ChakraProvider>
+  <App title={title}/>
+  </ChakraProvider>,
   document.getElementById('app')
 );
 

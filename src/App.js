@@ -4,7 +4,6 @@ import 'leaflet/dist/leaflet.css';
 import qs from 'qs';
 import React, { useEffect, useState } from 'react';
 import { MapContainer, Marker, Popup, TileLayer, useMapEvent } from 'react-leaflet';
-import "./app.css";
 import Layout from './components/Layout';
 
 

@@ -1,0 +1,33 @@
+#mapid {
+  height:100vh;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  background-color: orange;
+  border-bottom: 3px solid #3dd47d;
+  display:flex;
+  justify-content: space-between;
+  padding: 0 20px 0 20px;
+  align-items: end;
+  .filter-drawer {
+    padding-bottom: 19px;
+
+    .filter-header {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color:#333f49;
+    }
+  }
+  .logo {
+    width: 27rem;
+  }
+  .info-icon {
+    padding-bottom: 19px;
+    justify-self: end;
+  }
+}
