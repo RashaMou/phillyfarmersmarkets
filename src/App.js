@@ -68,7 +68,7 @@ return (
          />
          {markets.map(((market, idx) => {
            return (
-           <Marker position={[market.geometry.y, market.geometry.x]} >
+           <Marker position={[market.geometry.y, market.geometry.x]} key={idx}>
          <Popup>
          <div className="infobox">
             <h2 className="title is-5">{market.attributes.NAME}</h2>

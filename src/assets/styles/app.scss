@@ -29,5 +29,8 @@
   .info-icon {
     padding-bottom: 19px;
     justify-self: end;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
