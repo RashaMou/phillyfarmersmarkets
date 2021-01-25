@@ -9,13 +9,13 @@
 
 .header {
   background-color: orange;
-  border-bottom: 3px solid #3dd47d;
+  border-bottom: 3px solid #319795;
   display:flex;
   justify-content: space-between;
   padding: 0 20px 0 20px;
   align-items: end;
-  .filter-drawer {
-    padding-bottom: 19px;
+  .chakra-button {
+    margin-bottom: 19px;
 
     .filter-header {
       font-size: 1.5rem;

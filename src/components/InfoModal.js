@@ -13,7 +13,7 @@ const InfoModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
-        <InfoOutlineIcon w={14} h={14} color="#3dd47d" onClick={onOpen} className="info-icon"/>
+        <InfoOutlineIcon w={14} h={14} color="#319795" onClick={onOpen} className="info-icon"/>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
