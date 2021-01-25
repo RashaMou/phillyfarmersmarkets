@@ -61,7 +61,7 @@ const App = ({ title }) => {
 return (
 <Layout>
 <div id="mapid" >
-    <MapContainer   center={[39.952414, -75.146301]} zoom={14}>
+    <MapContainer   center={[39.952414, -75.146301]} zoom={12}>
     <MyComponent />
          <TileLayer
             url="https://api.mapbox.com/styles/v1/rjmh/ckkbqic0c4fzt17ntqcy6bc43/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoicmptaCIsImEiOiJja2ticWgyYngwZWduMndwY2RjZmhtMjltIn0.QOeHWiCR4DqKvx-l5nzUvQ"
