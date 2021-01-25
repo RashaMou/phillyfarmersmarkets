@@ -67,11 +67,43 @@ return (
             url="https://api.mapbox.com/styles/v1/rjmh/ckkbqic0c4fzt17ntqcy6bc43/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoicmptaCIsImEiOiJja2ticWgyYngwZWduMndwY2RjZmhtMjltIn0.QOeHWiCR4DqKvx-l5nzUvQ"
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors, <a href=&quot;https://creativecommons.org/licenses/by-sa/2.0/&quot;>CC-BY-SA</a>, Imagery © <a href=&quot;https://www.mapbox.com/&quot;>Mapbox</a>'
          />
-         <Marker position={[39.952335, -75.1635112]} >
+         {markets.map(((market, idx) => {
+           return (
+           <Marker position={[market.geometry.y, market.geometry.x]} >
          <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
+         <div className="infobox">
+            <h2 className="title is-5">{market.attributes.NAME}</h2>
+            <h3 className="infobox-subtitle">Address</h3>
+            <p>{market.attributes.ADDRESS}</p>
+            <p>{market.attributes.ZIP}</p>
+            <h3 className="infobox-subtitle">Neighborhood</h3>
+            <p>{market.attributes.NEIGHBORHOOD}</p>
+            <h3 className="infobox-subtitle">Months Open</h3>
+            <p>{market.attributes.MONTHS}</p>
+            <h3 className="infobox-subtitle">Day and time</h3>
+            <p>{market.attributes.DAY}</p>
+            <p>{market.attributes.TIME}</p>
+            {market.attributes.ACCEPT_FMNP === "Y" ||
+            market.attributes.ACCEPT_PHILLY_FOOD_BUCKS_ ||
+            market.attributes.ACCEPT_SNAP_ACCESS === "Y" ? (
+              <h3 className="infobox-subtitle">Food Assistance</h3>
+            ) : null}
+            {market.attributes.ACCEPT_FMNP === "Y" && (
+              <p>Farmers Market Nutrition Program</p>
+            )}
+            {market.attributes.ACCEPT_PHILLY_FOOD_BUCKS_ === "Y" && (
+              <p>Philly Food Bucks</p>
+            )}
+            {market.attributes.ACCEPT_SNAP_ACCESS === "Y" && (
+              <p>SNAP</p>
+            )}
+          </div>
             </Popup>
          </Marker>
+           )
+         }))}
+
+
       </MapContainer>
   </div>
 </Layout>
