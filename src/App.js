@@ -1,12 +1,15 @@
 import axios from 'axios';
-import L from 'leaflet';
+import L, { Icon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import qs from 'qs';
 import React, { useEffect, useState } from 'react';
 import { MapContainer, Marker, Popup, TileLayer, useMapEvent } from 'react-leaflet';
 import Layout from './components/Layout';
 
-
+const marketIcon = new Icon({
+  iconUrl: '/marker.png',
+  iconSize: [45, 45]
+})
  
 const App = ({ title }) => {
 
@@ -68,7 +71,7 @@ return (
          />
          {markets.map(((market, idx) => {
            return (
-           <Marker position={[market.geometry.y, market.geometry.x]} key={idx}>
+           <Marker position={[market.geometry.y, market.geometry.x]} key={idx} icon={marketIcon}>
          <Popup>
          <div className="infobox">
             <h2 className="title is-5">{market.attributes.NAME}</h2>
