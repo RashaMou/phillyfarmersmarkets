@@ -1,5 +1,5 @@
 #mapid {
-  height:100vh;
+  height: 100vh;
 }
 
 .leaflet-container {
@@ -8,9 +8,12 @@
 }
 
 .header {
-  background-color: orange;
-  border-bottom: 3px solid #319795;
-  display:flex;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 165, 0, 1) 78%,
+    rgba(240, 198, 61, 1) 100%
+  );
+  display: flex;
   justify-content: space-between;
   padding: 0 20px 0 20px;
   align-items: end;
@@ -20,7 +23,7 @@
     .filter-header {
       font-size: 1.5rem;
       font-weight: 800;
-      color:#333f49;
+      color: #333f49;
     }
   }
   .logo {
@@ -33,4 +36,24 @@
       cursor: pointer;
     }
   }
+}
+
+.css-co2d90 {
+  color: blue;
+}
+
+.leaflet-popup-content p {
+  margin: 0;
+}
+
+.popup-title {
+  font-size: 1rem;
+  color: #319795;
+  font-weight: 800;
+  border-bottom: 1px solid #319795;
+}
+.popup-subtitle {
+  margin-top: 15px;
+  font-size: 0.8rem;
+  font-weight: 800;
 }
