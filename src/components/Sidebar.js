@@ -68,16 +68,28 @@ const Sidebar = ({ markets }) => {
                       {neighborhood}
                     </Checkbox>
                   ))}
-                  {/* <Checkbox value="naruto" size="md" borderColor="gray.400">
-                    Checkbox
-                  </Checkbox>
-                  <Checkbox value="sasuke" size="md" borderColor="gray.400">
-                    Checkbox
-                  </Checkbox>
-                  <Checkbox value="kakashi" size="md" borderColor="gray.400">
-                    Checkbox
-                  </Checkbox> */}
                   <h2 className="sidebar-section-title">Food Assistance</h2>
+                  <Checkbox
+                    // value={ACCEPT_SNAP_ACCESS}
+                    size="md"
+                    borderColor="gray.400"
+                  >
+                    SNAP
+                  </Checkbox>
+                  <Checkbox
+                    // value={ACCEPT_FMNP}
+                    size="md"
+                    borderColor="gray.400"
+                  >
+                    Farmer's Market Nutrition Program
+                  </Checkbox>
+                  <Checkbox
+                    // value={ACCEPT_PHILLY_FOOD_BUCKS_}
+                    size="md"
+                    borderColor="gray.400"
+                  >
+                    Philly Food Bucks
+                  </Checkbox>
                   <h2 className="sidebar-section-title">Open Today</h2>
                   <Checkbox value="kakashi" size="md" borderColor="gray.400">
                     Yes
