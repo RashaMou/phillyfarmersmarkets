@@ -53,7 +53,7 @@ const App = ({ title }) => {
   }, []);
 
   return (
-    <Layout>
+    <Layout markets={markets}>
       <div id="mapid">
         <MapContainer center={[39.952414, -75.146301]} zoom={12}>
           <TileLayer

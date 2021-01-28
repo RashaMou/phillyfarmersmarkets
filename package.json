@@ -32,6 +32,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.12.10",
     "@chakra-ui/icons": "^1.0.3",
     "@chakra-ui/react": "^1.1.6",
     "@emotion/react": "^11.1.4",
@@ -44,6 +45,7 @@
     "qs": "^6.9.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-leaflet": "^3.0.5"
+    "react-leaflet": "^3.0.5",
+    "swr": "^0.4.0"
   }
 }

@@ -38,10 +38,7 @@
   }
 }
 
-.css-co2d90 {
-  color: blue;
-}
-
+// Marker Popup
 .leaflet-popup-content p {
   margin: 0;
 }
@@ -56,4 +53,22 @@
   margin-top: 15px;
   font-size: 0.8rem;
   font-weight: 800;
+}
+
+// Sidebar
+.sidebar-section-title {
+  border-bottom: 2px solid orange;
+  padding-bottom: 5px;
+  width: 100%;
+}
+.css-co2d90 {
+  color: blue;
+}
+
+label.chakra-checkbox.css-1ipgu9l {
+  margin-top: 1rem;
+}
+
+label.chakra-checkbox {
+  text-transform: capitalize;
 }

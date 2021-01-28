@@ -1,17 +1,15 @@
-import React from 'react';
-import Footer from './Footer';
-import Header from './Header';
+import React from "react";
+import Footer from "./Footer";
+import Header from "./Header";
 
-const Layout = ({children}) => {
+const Layout = ({ markets, children }) => {
   return (
     <div className="wrapper">
-      <Header />
-      <main>
-        { children }
-      </main>
+      <Header markets={markets} />
+      <main>{children}</main>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
 export default Layout;
