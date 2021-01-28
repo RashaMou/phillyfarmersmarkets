@@ -75,6 +75,10 @@
   justify-content: center;
   margin: 0 auto;
   width: 60%;
+
+  div.chakra-select__wrapper {
+    margin-right: 10px;
+  }
 }
 
 #selected {
