@@ -8,5 +8,9 @@ export async function getMarkets() {
 	);
 	const json = await res.json();
 	const markets = json.features;
-	return markets;
+	const munged = markets.map((market) => {
+		return market.attributes;
+	});
+
+	return munged;
 }

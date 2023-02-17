@@ -2,7 +2,26 @@
 	import { Map, Marker } from '@beyonk/svelte-mapbox';
 	let mapComponent;
 	export let data;
+	let markets = data.markets;
 
+	let filters = [];
+
+	const setFilter = (filter) => {
+		filters = [...filters, filter];
+		console.log('filters', filters);
+	};
+
+	$: filteredMarkets = markets.filter((market) => {
+		console.log(filters.includes('ACCEPT_PHILLY_FOOD_BUCKS'));
+		return (
+			(!filters.includes('ACCEPT_PHILLY_FOOD_BUCKS') ||
+				(filters.includes('ACCEPT_PHILLY_FOOD_BUCKS') &&
+					market.ACCEPT_PHILLY_FOOD_BUCKS == 'Yes')) &&
+			(!filters.includes('ACCEPT_SNAP_ACCESS') ||
+				(filters.includes('ACCEPT_SNAP_ACCESS') && market.ACCEPT_SNAP_ACCESS == 'Yes'))
+		);
+	});
+	console.log('filteredMarkets', filteredMarkets);
 	function onReady() {
 		mapComponent.flyTo({ center: [-75.16586, 39.94833] });
 	}
@@ -12,4 +31,16 @@
 	<Map accessToken={data.mapbox_api_key} bind:this={mapComponent} on:ready={onReady}>
 		<Marker lat="-39.94833" lng="75.16586" label="Philly" />
 	</Map>
+	<div>
+		<button on:click={() => setFilter('ACCEPT_PHILLY_FOOD_BUCKS')}>food bucks</button>
+		<button on:click={() => setFilter('ACCEPT_SNAP_ACCESS')}>snap</button>
+	</div>
+	{#each filteredMarkets as market}
+		<div>
+			<li>{market.NAME}</li>
+			<li>Philly food bucks: {market.ACCEPT_PHILLY_FOOD_BUCKS}</li>
+			<li>Snap: {market.ACCEPT_SNAP_ACCESS}</li>
+		</div>
+		<hr />
+	{/each}
 </div>
