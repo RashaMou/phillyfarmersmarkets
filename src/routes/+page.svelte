@@ -8,11 +8,9 @@
 
 	const setFilter = (filter) => {
 		filters = [...filters, filter];
-		console.log('filters', filters);
 	};
 
 	$: filteredMarkets = markets.filter((market) => {
-		console.log(filters.includes('ACCEPT_PHILLY_FOOD_BUCKS'));
 		return (
 			(!filters.includes('ACCEPT_PHILLY_FOOD_BUCKS') ||
 				(filters.includes('ACCEPT_PHILLY_FOOD_BUCKS') &&
@@ -28,8 +26,22 @@
 </script>
 
 <div style="height:500px; width:700px">
-	<Map accessToken={data.mapbox_api_key} bind:this={mapComponent} on:ready={onReady}>
-		<Marker lat="-39.94833" lng="75.16586" label="Philly" />
+	<Map
+		accessToken={data.mapbox_api_key}
+		bind:this={mapComponent}
+		on:ready={onReady}
+		style="mapbox://styles/mapbox/outdoors-v11"
+		zoom="11"
+	>
+		{#each filteredMarkets as market}
+			<Marker
+				lat={market.Y}
+				lng={market.X}
+				color="red"
+				label={market.NAME}
+				popupClassName="class-name"
+			/>
+		{/each}
 	</Map>
 	<div>
 		<button on:click={() => setFilter('ACCEPT_PHILLY_FOOD_BUCKS')}>food bucks</button>
