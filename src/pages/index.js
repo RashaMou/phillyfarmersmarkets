@@ -27,12 +27,43 @@ const MapWithNoSSR = dynamic(() => import("../components/Map"), {
 });
 
 export default function Home({ markets }) {
-  console.log(markets);
+  const [ogMarkets, setOgMarkets] = useState(markets);
+  const [shownMarkets, setShownMarkets] = useState(markets);
+  const [isOpenFilter, setIsOpenFilter] = useState(false);
+
+  const applyFilters = () => {
+    let filteredMarkets = ogMarkets;
+
+    if (isOpenFilter) {
+      filteredMarkets = filteredMarkets.filter((market) => isOpen(market.attributes));
+    }
+
+    // add more filters here
+
+    setShownMarkets(filteredMarkets);
+  }
+
+  useEffect(() => {
+    applyFilters();
+  }, [isOpenFilter]);
+
   return (
     <main className={styles.main}>
       <h2>Philly Farmers Markets</h2>
-      <FilterBar />
-      <MapWithNoSSR markets={markets} />
+      <div>
+        <h3>Filters</h3>
+        <div>
+          <label>
+            Open today
+          </label>
+          <input
+            type='checkbox'
+            checked={isOpenFilter}
+            onChange={(e) => setIsOpenFilter(e.target.checked)}
+          />
+        </div>
+      </div>
+      <MapWithNoSSR markets={shownMarkets} />
     </main>
   );
 }
