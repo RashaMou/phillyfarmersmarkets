@@ -1,14 +1,15 @@
 import dynamic from "next/dynamic";
 import "leaflet/dist/leaflet.css";
 import styles from "../styles/home.module.css";
-import FilterBar from "@/components/FilterBar";
 import { mungeMarkets } from "../utils/munge.js";
+import React, { useState, useEffect } from 'react';
+import { isOpen } from '../utils/isOpen.js';
 
 export async function getStaticProps() {
   const url =
     "https://services.arcgis.com/fLeGjb7u4uXqeF9q/arcgis/rest/services/Farmers_Markets/FeatureServer/0/query?outFields=*&geometryType=esriGeometryPoint&outSR=4326&where=1%3D1&f=json";
 
-  const res = await fetch(url);
+  const res = await fetch(url, { cache: 'force-cache', next: { revalidate: 86400 }});
   const locations = await res.json();
   const markets = mungeMarkets(locations.features);
 
@@ -16,7 +17,7 @@ export async function getStaticProps() {
     props: {
       markets: markets,
     },
-    revalidate: 60, // Revalidate the page every 60 seconds
+    revalidate: 3600,
   };
 }
 
