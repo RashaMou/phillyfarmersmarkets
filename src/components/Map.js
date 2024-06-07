@@ -10,7 +10,6 @@ const Map = ({ markets }) => {
     "https://api.mapbox.com/styles/v1/rjmh/ckkbqic0c4fzt17ntqcy6bc43/tiles/256/{z}/{x}/{y}@2x?access_token=";
   return (
     <>
-      <h2>Philly Farmers Markets</h2>
       <MapContainer
         center={[39.952583, -75.165222]}
         zoom={12}
