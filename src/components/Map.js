@@ -10,7 +10,7 @@ const Map = ({ markets }) => {
   const url =
     "https://api.mapbox.com/styles/v1/rjmh/clx5pgazt03cc01qm3foka7nk/tiles/256/{z}/{x}/{y}@2x?access_token=";
 
-  const center = [39.952583, -75.165222];
+  const center = [39.992583, -75.165222];
 
   // uncomment once Clark Park Market coordinates are fixed
   // const bounds = [];
@@ -26,7 +26,8 @@ const Map = ({ markets }) => {
     <>
       <MapContainer
         center={center}
-        zoom={12}
+        zoom={12.25}
+        zoomSnap={0.25}
         style={{ height: "100%", width: "100%" }}
         // bounds={bounds}
         // maxBounds={bounds}
