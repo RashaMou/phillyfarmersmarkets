@@ -1,19 +1,36 @@
 "use client";
-
+import { useState, useRef } from 'react';
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import "leaflet-defaulticon-compatibility";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { FlyToCenter } from './FlyToCenter.js';
 
 const Map = ({ markets }) => {
   const url =
-    "https://api.mapbox.com/styles/v1/rjmh/ckkbqic0c4fzt17ntqcy6bc43/tiles/256/{z}/{x}/{y}@2x?access_token=";
+    "https://api.mapbox.com/styles/v1/rjmh/clx5pgazt03cc01qm3foka7nk/tiles/256/{z}/{x}/{y}@2x?access_token=";
+
+  const center = [39.952583, -75.165222];
+
+  // uncomment once Clark Park Market coordinates are fixed
+  // const bounds = [];
+  // for (const market of markets) {
+  //   for (const key in market.geometry) {
+  //     if (market.attributes.name == "Clark Park Farmers Market") {
+  //       continue;
+  //     }
+  //     bounds.push([market.geometry.y, market.geometry.x])
+  //   }
+  // }
   return (
     <>
       <MapContainer
-        center={[39.952583, -75.165222]}
+        center={center}
         zoom={12}
         style={{ height: "100%", width: "100%" }}
+        // bounds={bounds}
+        // maxBounds={bounds}
+        // boundsOptions={{padding: [300, 100]}}
       >
         <TileLayer url={`${url}${process.env.MAPBOX_ACCESS_TOKEN}`} />
         {markets.map((market) => {
@@ -26,6 +43,7 @@ const Map = ({ markets }) => {
             </Marker>
           );
         })}
+        <FlyToCenter center={center} />
       </MapContainer>
     </>
   );
