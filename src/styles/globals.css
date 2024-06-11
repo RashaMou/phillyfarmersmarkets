@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  font-family: var(--font-glegoo), sans-serif;
+}
+
+.leaflet-control-zoom-in span, .leaflet-control-zoom-out span {
+    color: #C1625F;
+}
+
+.leaflet-control-container .leaflet-top .leaflet-control-zoom { 
+  border: none;
+}
+
+.leaflet-control-container .leaflet-top .leaflet-control-zoom a.leaflet-control-zoom-in {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.leaflet-control-container .leaflet-top .leaflet-control-zoom a.leaflet-control-zoom-out {
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}

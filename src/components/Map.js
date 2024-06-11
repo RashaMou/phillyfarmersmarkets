@@ -28,7 +28,7 @@ const Map = ({ markets }) => {
         center={center}
         zoom={12.25}
         zoomSnap={0.25}
-        style={{ height: "100%", width: "100%" }}
+        style={{ height: "90%", width: "100%" }}
         // bounds={bounds}
         // maxBounds={bounds}
         // boundsOptions={{padding: [300, 100]}}
