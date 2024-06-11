@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
 import "leaflet/dist/leaflet.css";
-import styles from "../styles/home.module.css";
 import { mungeMarkets } from "../utils/munge.js";
 import React, { useState, useEffect } from 'react';
 import { isOpen } from '../utils/isOpen.js';
