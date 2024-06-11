@@ -29,6 +29,7 @@ export default function Home({ markets }) {
   const [ogMarkets, setOgMarkets] = useState(markets);
   const [shownMarkets, setShownMarkets] = useState(markets);
   const [isOpenFilter, setIsOpenFilter] = useState(false);
+  const [query, setQuery] = useState("");
 
   const applyFilters = () => {
     let filteredMarkets = ogMarkets;
