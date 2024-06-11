@@ -3,6 +3,7 @@ import "leaflet/dist/leaflet.css";
 import { mungeMarkets } from "../utils/munge.js";
 import React, { useState, useEffect } from 'react';
 import { isOpen } from '../utils/isOpen.js';
+import Toggle from '../components/Toggle.js';
 
 export async function getStaticProps() {
   const url =
