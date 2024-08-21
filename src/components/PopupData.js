@@ -8,7 +8,7 @@ const PopupData = ({ market, isExpanded, onToggleExpand, coords }) => {
     <div className="text-[#333] p-3.5 shadow-[0 2px 6px rgba(0,0,0,0.1)]">
       <p className="text-base font-medium text-[#ffa500]">{market.name}</p>
       <div className="flex items-center">
-        <a href={`https://www.google.com/maps/dir/?api=1&destination=${coords.y},${coords.x}`}><img src="compass.png" className="w-6 mr-1" /></a><span className="text-sm">{market.address}, {market.zip}</span>
+        <a href={`https://www.google.com/maps/dir/?api=1&destination=${coords.y},${coords.x}`}><img src="compass.png" className="w-6 mr-1" alt="compass" /></a><span className="text-sm" alt="compass">{market.address}, {market.zip}</span>
       </div>
       {
         Object.keys(market.hours).map(day => {
@@ -41,19 +41,19 @@ const PopupData = ({ market, isExpanded, onToggleExpand, coords }) => {
                   : ""}
             </span>
             <div className="flex mt-2 justify-start pb-2">
-              {market.contact_facebook && <a href={market.contact_facebook}><img src="facebook.png" className="w-7 pr-2" /></a>}
-              {market.contact_instagram && <a href={market.contact_instagram}><img src="instagram.png" className="w-7 pr-2" /></a>}
-              {market.contact_x && <a href={market.contact_x}><img src="x.png" className="w-6" /></a>}
+              {market.contact_facebook && <a href={market.contact_facebook}><img src="facebook.png" className="w-7 pr-2" alt="facebook" /></a>}
+              {market.contact_instagram && <a href={market.contact_instagram}><img src="instagram.png" className="w-7 pr-2" alt="instagram" /></a>}
+              {market.contact_x && <a href={market.contact_x}><img src="x.png" className="w-6" alt="x logo" /></a>}
             </div>
             <hr className="mb-3 mt-1" />
             {Object.keys(market.payment_methods).length > 0 &&
               <div className="flex flex-col justify-between">
                 <div className="flex items-center ml-[-6px] mb-2">
-                  <img src="payment.png" className="w-7 mr-1" /><span className="text-sm text-[#ffa500]">Payment Methods:</span>
+                  <img src="payment.png" className="w-7 mr-1" alt="payment icon" /><span className="text-sm text-[#ffa500]">Payment Methods:</span>
                 </div>
                 <ul className="list-disc ml-[18px]">
-                  {Object.keys(market.payment_methods).map((method => {
-                    return <li className="pb-1">{market.payment_methods[method]}</li>
+                  {Object.keys(market.payment_methods).map((idx, method => {
+                    return <li className="pb-1" key={idx}>{market.payment_methods[method]}</li>
                   }))}
                 </ul>
               </div>
