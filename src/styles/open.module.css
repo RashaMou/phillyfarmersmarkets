@@ -33,7 +33,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: #C1625F;
+    background-color: #ffa500;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
     border-top-left-radius: 0;
@@ -48,7 +48,7 @@
     left: 50%;
     transform: translateX(-50%);
     font-weight: bold;
-    color: #C1625F;
+    color: #ffa500;
     pointer-events: none;
     z-index: 1;
     font-size: 1.1rem;
@@ -74,7 +74,7 @@
 
 .toggleButton input:not(:checked) + .slider + .text {
     color: #2f6f4e;
-    color: #C1625F;
+    color: #ffa500;
 }
 
 
