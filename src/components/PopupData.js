@@ -6,7 +6,7 @@ const PopupData = ({ market, isExpanded, onToggleExpand, coords }) => {
 
   return (
     <div className="text-[#333] p-3.5 shadow-[0 2px 6px rgba(0,0,0,0.1)]">
-      <p className="text-base font-medium text-[#C1625F]">{market.name}</p>
+      <p className="text-base font-medium text-[#ffa500]">{market.name}</p>
       <div className="flex items-center">
         <a href={`https://www.google.com/maps/dir/?api=1&destination=${coords.y},${coords.x}`}><img src="compass.png" className="w-6 mr-1" /></a><span className="text-sm">{market.address}, {market.zip}</span>
       </div>
@@ -49,7 +49,7 @@ const PopupData = ({ market, isExpanded, onToggleExpand, coords }) => {
             {Object.keys(market.payment_methods).length > 0 &&
               <div className="flex flex-col justify-between">
                 <div className="flex items-center ml-[-6px] mb-2">
-                  <img src="payment.png" className="w-7 mr-1" /><span className="text-sm text-[#C1625F]">Payment Methods:</span>
+                  <img src="payment.png" className="w-7 mr-1" /><span className="text-sm text-[#ffa500]">Payment Methods:</span>
                 </div>
                 <ul className="list-disc ml-[18px]">
                   {Object.keys(market.payment_methods).map((method => {
