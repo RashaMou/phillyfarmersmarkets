@@ -4,6 +4,7 @@ import "leaflet/dist/leaflet.css";
 import { mungeMarkets } from "../utils/munge.js";
 import { isOpen } from '../utils/isOpen.js';
 import Open from '../components/Open.js';
+import Image from "next/image.js";
 
 export async function getStaticProps() {
   const url =
