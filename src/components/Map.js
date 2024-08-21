@@ -3,7 +3,7 @@ import { useState, useRef } from 'react';
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import "leaflet-defaulticon-compatibility";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from "react-leaflet";
 import { FlyToCenter } from './FlyToCenter.js';
 
 const Map = ({ markets }) => {
@@ -26,9 +26,10 @@ const Map = ({ markets }) => {
     <>
       <MapContainer
         center={center}
-        zoom={12.25}
-        zoomSnap={0.25}
-        style={{ height: "90%", width: "100%" }}
+        zoom={11.5}
+        zoomSnap={0.5}
+        zoomControl={false}
+        style={{ height: "100%", width: "100%", boxShadow: "0 -2px 5px #ccc"}}
         // bounds={bounds}
         // maxBounds={bounds}
         // boundsOptions={{padding: [300, 100]}}
@@ -45,6 +46,7 @@ const Map = ({ markets }) => {
           );
         })}
         <FlyToCenter center={center} />
+        <ZoomControl />
       </MapContainer>
     </>
   );
