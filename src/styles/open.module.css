@@ -1,0 +1,80 @@
+.toggleButton {
+    position: absolute;
+    z-index: 1000;
+    top: 300px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.toggleButton input {
+    display: none;
+}
+
+.slider {
+    width: 210px;
+    height: 50px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: #FEF7F4;
+    border: 2px solid #ccc;
+    border-left-width: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #C1625F;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    transition: transform 0.3s, left 0.3s;
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+.text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    color: #C1625F;
+    pointer-events: none;
+    z-index: 1;
+    font-size: 1.1rem;
+}
+
+.toggleButton input:checked + .slider::before {
+    transform: scaleX(1);
+    transform-origin: right;
+}
+
+.toggleButton input:checked + .slider + .text {
+    color: white;
+}
+
+.toggleButton input:not(:checked) + .slider::before {
+    transform: scaleX(1);
+    left: -100%;
+}
+
+.toggleButton input:not(:checked) + .slider {
+    background-color: #FEF7F4;
+}
+
+.toggleButton input:not(:checked) + .slider + .text {
+    color: #2f6f4e;
+    color: #C1625F;
+}
+
+

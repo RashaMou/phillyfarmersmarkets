@@ -1,9 +1,9 @@
 import dynamic from "next/dynamic";
+import React, { useState, useEffect } from 'react';
 import "leaflet/dist/leaflet.css";
 import { mungeMarkets } from "../utils/munge.js";
-import React, { useState, useEffect } from 'react';
 import { isOpen } from '../utils/isOpen.js';
-import Toggle from '../components/Toggle.js';
+import Open from '../components/Open.js';
 
 export async function getStaticProps() {
   const url =
@@ -91,13 +91,10 @@ export default function Home({ markets }) {
           />
         </div>
       </div>
-      <div>
-        <input
-          type="text"
-          placeholder="Search.."
-        />
+      <div className="px-10">
+        <Open isOpenFilter={isOpenFilter} setIsOpenFilter={setIsOpenFilter} />
       </div>
       <MapWithNoSSR markets={shownMarkets} />
-    </main >
+    </main>
   );
 }
