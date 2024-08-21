@@ -66,7 +66,7 @@ export default function Home({ markets }) {
 
   return (
     <main className="w-fill h-screen flex flex-col items-center bg-[#FEF7F4]">
-      <div className="flex flex-row w-full justify-between px-10">
+      <div className="flex flex-row w-full justify-between px-10 bg-[#ffa500]">
         <Image
           src="/logoo.svg"
           alt="PhillyFarmersMarkets logo"
