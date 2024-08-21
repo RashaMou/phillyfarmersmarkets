@@ -8,7 +8,7 @@ import { FlyToCenter } from './FlyToCenter.js';
 
 const Map = ({ markets }) => {
   const url =
-    "https://api.mapbox.com/styles/v1/rjmh/clx5pgazt03cc01qm3foka7nk/tiles/256/{z}/{x}/{y}@2x?access_token=";
+    "https://api.mapbox.com/styles/v1/rjmh/clxausug304gz01qm18i7c0la/tiles/256/{z}/{x}/{y}@2x?access_token=";
 
   const center = [39.992583, -75.165222];
 
