@@ -8,7 +8,7 @@ import PopupData from "../components/PopupData.js";
 import { useState } from "react";
 import { Icon } from 'leaflet';
 
-const Center = [39.992583, -75.165222];
+const Center = [40.0111, -75.165222];
 
 function MapEventHandler({ onPopupClose }) {
   const map = useMap();
@@ -23,22 +23,21 @@ function MapEventHandler({ onPopupClose }) {
 const Map = ({ markets }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-
   const handlePopupClose = () => {
     setIsExpanded(false);
   }
 
   const url =
-    "https://api.mapbox.com/styles/v1/rjmh/clxausug304gz01qm18i7c0la/tiles/256/{z}/{x}/{y}@2x?access_token=";
+    // "https://api.mapbox.com/styles/v1/rjmh/clxausug304gz01qm18i7c0la/tiles/256/{z}/{x}/{y}@2x?access_token=";
+    "https://api.mapbox.com/styles/v1/rjmh/ckkbqic0c4fzt17ntqcy6bc43/tiles/256/{z}/{x}/{y}@2x?access_token=";
 
 
-  // const MarkerIcon = new Icon({
-  //   iconUrl: 'corn.png',
-  //   iconSize: [50, 50], // size of the icon
-  //   iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-  //   popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
-  //
-  // })
+  const MarkerIcon = new Icon({
+    iconUrl: 'marker.png',
+    iconSize: [50, 50], // size of the icon
+    iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+    popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+  })
 
   const bounds = markets.map(market => [market.geometry.y, market.geometry.x]);
 
@@ -57,6 +56,7 @@ const Map = ({ markets }) => {
         {markets.map((market) => {
           return (
             <Marker
+              icon={MarkerIcon}
               key={market.attributes.objectid}
               position={[market.geometry.y, market.geometry.x]}
             >
