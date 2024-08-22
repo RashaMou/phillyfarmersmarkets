@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import "leaflet/dist/leaflet.css";
 import { mungeMarkets } from "../utils/munge.js";
 import { isOpen } from '../utils/isOpen.js';
@@ -33,7 +33,7 @@ export default function Home({ markets }) {
   const [isOpenFilter, setIsOpenFilter] = useState(false);
   const [query, setQuery] = useState("");
 
-  const applyFilters = () => {
+  const applyFilters = useCallback(() => {
     let filteredMarkets = ogMarkets;
 
     if (isOpenFilter) {
@@ -41,17 +41,17 @@ export default function Home({ markets }) {
     }
 
     if (query) {
-      filteredMarkets = filteredMarkets.filter((market) => market.attributes.name == query);
+      filteredMarkets = filteredMarkets.filter((market) =>
+        market.attributes.name.toLowerCase().includes(query.toLowerCase())
+      );
     }
 
-    // add more filters here
-
     setShownMarkets(filteredMarkets);
-  }
+  }, [ogMarkets, isOpenFilter, query]);
 
   useEffect(() => {
     applyFilters();
-  }, [isOpenFilter]);
+  }, [applyFilters]);
 
   const handleInput = (e) => {
     e.preventDefault();
