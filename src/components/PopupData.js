@@ -52,9 +52,9 @@ const PopupData = ({ market, isExpanded, onToggleExpand, coords }) => {
                   <img src="payment.png" className="w-7 mr-1" alt="payment icon" /><span className="text-sm text-[#ffa500]">Payment Methods:</span>
                 </div>
                 <ul className="list-disc ml-[18px]">
-                  {Object.keys(market.payment_methods).map((idx, method => {
+                  {Object.keys(market.payment_methods).map((method, idx) => {
                     return <li className="pb-1" key={idx}>{market.payment_methods[method]}</li>
-                  }))}
+                  })}
                 </ul>
               </div>
             }
