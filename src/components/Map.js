@@ -28,7 +28,6 @@ const Map = ({ markets }) => {
   }
 
   const url =
-    // "https://api.mapbox.com/styles/v1/rjmh/clxausug304gz01qm18i7c0la/tiles/256/{z}/{x}/{y}@2x?access_token=";
     "https://api.mapbox.com/styles/v1/rjmh/ckkbqic0c4fzt17ntqcy6bc43/tiles/256/{z}/{x}/{y}@2x?access_token=";
 
 

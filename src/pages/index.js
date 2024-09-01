@@ -1,16 +1,19 @@
 import dynamic from "next/dynamic";
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from "react";
 import "leaflet/dist/leaflet.css";
 import { mungeMarkets } from "../utils/munge.js";
-import { isOpen } from '../utils/isOpen.js';
-import Open from '../components/Open.js';
+import { isOpen } from "../utils/isOpen.js";
+import Open from "../components/Open.js";
 import Image from "next/image.js";
 
 export async function getStaticProps() {
   const url =
     "https://services.arcgis.com/fLeGjb7u4uXqeF9q/arcgis/rest/services/Farmers_Markets/FeatureServer/0/query?outFields=*&geometryType=esriGeometryPoint&outSR=4326&where=1%3D1&f=json";
 
-  const res = await fetch(url, { cache: 'force-cache', next: { revalidate: 86400 } });
+  const res = await fetch(url, {
+    cache: "force-cache",
+    next: { revalidate: 86400 },
+  });
   const locations = await res.json();
   const markets = mungeMarkets(locations.features);
 
@@ -37,12 +40,14 @@ export default function Home({ markets }) {
     let filteredMarkets = ogMarkets;
 
     if (isOpenFilter) {
-      filteredMarkets = filteredMarkets.filter((market) => isOpen(market.attributes));
+      filteredMarkets = filteredMarkets.filter((market) =>
+        isOpen(market.attributes),
+      );
     }
 
     if (query) {
       filteredMarkets = filteredMarkets.filter((market) =>
-        market.attributes.name.toLowerCase().includes(query.toLowerCase())
+        market.attributes.name.toLowerCase().includes(query.toLowerCase()),
       );
     }
 

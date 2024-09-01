@@ -1,4 +1,5 @@
 import { useMap } from 'react-leaflet';
+import Image from 'next/image';
 
 export const FlyToCenter = ({ center }) => {
   const map = useMap();
@@ -16,7 +17,7 @@ export const FlyToCenter = ({ center }) => {
       className="absolute top-[10px] right-[10px] z-[9999] p-2 mr-10"
       onClick={flyToCenter}
     >
-      <img src="aim.png" className="w-9" alt="center icon" />
+      <Image src="/aim.png" width={36} height={36} alt="center icon" />
     </button>
   );
 };
