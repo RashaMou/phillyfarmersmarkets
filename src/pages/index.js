@@ -83,7 +83,7 @@ export default function Home({ markets }) {
           />
         </div>
         <div className="relative w-full sm:w-auto">
-          <div className="absolute top-1.5 bottom-0 left-0 sm:bottom-8 flex items-center pl-3 pointer-events-none">
+          <div className="absolute sm:top-9 top-1.5 bottom-0 left-0 sm:bottom-8 flex items-center pl-3 pointer-events-none">
             <svg
               className="w-4 h-4 text-gray-500"
               aria-hidden="true"
@@ -107,7 +107,7 @@ export default function Home({ markets }) {
             value={query}
             onChange={handleInput}
             placeholder="Search for market"
-            className="block w-full p-2 pl-10 mt-2 sm:mt-6 sm:text-sm text-xs text-gray-900 border border-gray-300 rounded-2xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+            className="block w-full p-2 pl-10 mt-2 sm:mt-[2.35rem] sm:text-sm text-xs text-gray-900 border border-gray-300 rounded-2xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
         <div className="sm:hidden w-full mt-2">
