@@ -64,7 +64,7 @@ export default function Home({ markets }) {
     setQuery(searchTerm);
 
     const filteredMarkets = ogMarkets.filter((market) =>
-      market.attributes.name.toLowerCase().includes(searchTerm.toLowerCase())
+      market.attributes.name.toLowerCase().includes(searchTerm.toLowerCase()),
     );
 
     setShownMarkets(filteredMarkets);
@@ -72,18 +72,32 @@ export default function Home({ markets }) {
 
   return (
     <main className="w-fill h-screen flex flex-col items-center bg-[#FEF7F4]">
-      <div className="flex flex-row w-full justify-between px-10 bg-[#ffa500]">
-        <Image
-          src="/logoo.svg"
-          alt="PhillyFarmersMarkets logo"
-          width={300}
-          height={10}
-          priority
-        />
-        <div className="relative">
-          <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <svg className="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+      <div className="flex flex-col sm:flex-row w-full justify-between p-4 sm:px-10 bg-[#ffa500]">
+        <div className="w-60 sm:w-72 h-[4rem] sm:h-24 relative sm:mb-4 self-center sm:self-start">
+          <Image
+            src="/logoo.svg"
+            alt="PhillyFarmersMarkets logo"
+            layout="fill"
+            objectFit="contain"
+            priority
+          />
+        </div>
+        <div className="relative w-full sm:w-auto">
+          <div className="absolute top-1.5 bottom-0 left-0 sm:bottom-8 flex items-center pl-3 pointer-events-none">
+            <svg
+              className="w-4 h-4 text-gray-500"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 20 20"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+              />
             </svg>
           </div>
           <input
@@ -93,14 +107,27 @@ export default function Home({ markets }) {
             value={query}
             onChange={handleInput}
             placeholder="Search for market"
-            className="block w-full p-2 pl-10 mt-6 text-sm text-gray-900 border border-gray-300 rounded-2xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+            className="block w-full p-2 pl-10 mt-2 sm:mt-6 sm:text-sm text-xs text-gray-900 border border-gray-300 rounded-2xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+          />
+        </div>
+        <div className="sm:hidden w-full mt-2">
+          <Open
+            isOpenFilter={isOpenFilter}
+            setIsOpenFilter={setIsOpenFilter}
+            compact={true}
           />
         </div>
       </div>
-      <div className="px-10">
-        <Open isOpenFilter={isOpenFilter} setIsOpenFilter={setIsOpenFilter} />
+      <div className="hidden sm:block ps-10 w-full">
+        <Open
+          isOpenFilter={isOpenFilter}
+          setIsOpenFilter={setIsOpenFilter}
+          compact={false}
+        />
       </div>
-      <MapWithNoSSR markets={shownMarkets} />
+      <div className="w-full flex-grow">
+        <MapWithNoSSR markets={shownMarkets} />
+      </div>
     </main>
   );
 }
