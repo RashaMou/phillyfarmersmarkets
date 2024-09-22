@@ -35,13 +35,6 @@ const isOpen = (market) => {
     return false;
   }
 
-  const isOpenHours = checkOpeningHours(market.hours[today], hour);
-
-  // return false if we aren't within opening hours
-  if (!isOpenHours) {
-    return false;
-  }
-
   // if it's open year round, we're good!
   if (market.season?.year_round) {
     return true;
@@ -86,10 +79,4 @@ const isOpen = (market) => {
   }
 };
 
-const checkOpeningHours = (market_hours, current_hour) => {
-  if (current_hour >= market_hours.start && current_hour < market_hours.end) {
-    return true;
-  }
-};
-
-module.exports = { isOpen, checkOpeningHours };
+module.exports = { isOpen };

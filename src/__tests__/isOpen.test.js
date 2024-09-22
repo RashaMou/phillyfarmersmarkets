@@ -1,4 +1,4 @@
-const { isOpen, checkOpeningHours } = require("../utils/isOpen");
+const { isOpen } = require("../utils/isOpen");
 
 // Mock Date object
 const mockDate = (date) => {
@@ -31,14 +31,21 @@ describe("isOpen function", () => {
     expect(isOpen(market)).toBe(false);
   });
 
-  test("should return false when current time is outside market hours", () => {
+  test("should return true when current time is outside market hours but open that day", () => {
     mockDate("2023-09-20T18:00:00"); // Wednesday 6 PM
     const market = {
       hours: {
         Wed: { start: 9, end: 17 },
       },
+      season: {
+        year_round: false,
+        opening_month: "June",
+        closing_month: "October",
+        opening_day: 1,
+        closing_day: 31,
+      },
     };
-    expect(isOpen(market)).toBe(false);
+    expect(isOpen(market)).toBe(true);
   });
 
   test("should return true when market is open year-round and within hours", () => {
@@ -86,17 +93,5 @@ describe("isOpen function", () => {
       },
     };
     expect(isOpen(market)).toBe(false);
-  });
-});
-
-describe("checkOpeningHours function", () => {
-  test("should return true when current hour is within market hours", () => {
-    const marketHours = { start: 9, end: 17 };
-    expect(checkOpeningHours(marketHours, 12)).toBe(true);
-  });
-
-  test("should return undefined when current hour is outside market hours", () => {
-    const marketHours = { start: 9, end: 17 };
-    expect(checkOpeningHours(marketHours, 18)).toBeUndefined();
   });
 });
